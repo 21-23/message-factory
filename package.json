@@ -13,7 +13,7 @@
     "type": "git"
   },
   "author": "games4nerds",
-  "license": "MIT",
+  "license": "LGPL-3.0",
   "devDependencies": {
     "eslint": "^3.13.1",
     "eslint-config-airbnb-base": "^11.0.1",
