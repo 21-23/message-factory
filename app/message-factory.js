@@ -1,51 +1,34 @@
 /*
- * The common interface to communicate with Messanger.
+ * The common interface to communicate within services.
  *
  * Generic message example:
  * {
- *      destination: 'state-service',
- *      type: 'game-connect',
- *      payload: '{"user-id":"user-0-dqd3d-23dasd-3dasd"}'
+ *      to: 'state-service',
+ *      message: { name: 'checkin', identity: 'front-service' }
  * }
  *
  */
 
 
-function createMessage(destination, type, payload) {
-    if (!destination) {
-        throw new TypeError('"destination" is required for message');
-    }
-    if (!type) {
-        throw new TypeError('"type" is required for message');
+function createMessage(to, payload) {
+    if (!to) {
+        throw new TypeError('"to" is required for message');
     }
 
     const message = {
-        destination,
-        type,
-        payload: JSON.stringify(payload),
+        to,
+        message: payload,
     };
 
     return JSON.stringify(message);
 }
 
-function parsePayload(payloadStr) {
-    if (!payloadStr || typeof payloadStr !== 'string') {
-        return payloadStr;
-    }
-
-    return JSON.parse(payloadStr);
-}
-
-function parseMessage(messageStr, payloadParse = false) {
+function parseMessage(messageStr) {
     if (!messageStr) {
         throw new TypeError('no message to be parsed');
     }
 
     const message = JSON.parse(messageStr);
-
-    if (payloadParse) {
-        message.payload = parsePayload(message.payload);
-    }
 
     return message;
 }
@@ -53,5 +36,4 @@ function parseMessage(messageStr, payloadParse = false) {
 module.exports = {
     createMessage,
     parseMessage,
-    parsePayload,
 };
