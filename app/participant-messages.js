@@ -6,12 +6,12 @@ const MESSAGE_NAME = {
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
-exports.joined = function (destination, sessionId, participantId) {
+exports.joined = function (destination, sessionId, participantId, displayName) {
     if (!destination) {
         throw new TypeError('destination is required for participant.joined message');
     }
 
-    return createMessage(destination, { name: MESSAGE_NAME.joined, sessionId, participantId });
+    return createMessage(destination, { name: MESSAGE_NAME.joined, sessionId, participantId, displayName });
 };
 
 exports.left = function (destination, sessionId, participantId) {
