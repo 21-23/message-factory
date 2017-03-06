@@ -1,13 +1,15 @@
 const { createMessage, parseMessage } = require('./message-factory');
 
 const arnaux = require('./arnaux-messages');
-const session = require('./session-messages');
-const participant = require('./participant-messages');
+const uiProtocol = require('./protocol/ui');
+const stateServiceProtocol = require('./protocol/state-service');
 
 module.exports = {
     createMessage,
     parseMessage,
     arnaux,
-    session,
-    participant,
+    protocol: {
+        stateService: stateServiceProtocol,
+        ui: uiProtocol,
+    }
 };
