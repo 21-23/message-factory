@@ -9,10 +9,10 @@
     "prepush": "npm run test"
   },
   "repository": {
-    "url": "git@github.com:games4nerds/message-factory.git",
+    "url": "git@github.com:21-23/message-factory.git",
     "type": "git"
   },
-  "author": "games4nerds",
+  "author": "21-23",
   "license": "LGPL-3.0",
   "devDependencies": {
     "eslint": "^3.13.1",
