@@ -13,5 +13,5 @@ exports.participantJoined = function (sessionId, participantId, displayName) {
 };
 
 exports.participantLeft = function (sessionId, participantId) {
-    return createMessage(identity, { name: MESSAGE_NAME.left, sessionId, participantId });
+    return createMessage(identity, { name: MESSAGE_NAME.participantLeft, sessionId, participantId });
 };
