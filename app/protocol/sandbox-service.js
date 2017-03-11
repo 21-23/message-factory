@@ -2,26 +2,27 @@ const { createMessage } = require('../message-factory');
 
 const identity = 'sandbox-service';
 
+// a-z order, please
 const MESSAGE_NAME = {
-    sandboxSet: 'sandbox.set',
-    sandboxReset: 'sandbox.reset',
-    solutionEvaluate: 'solution.evaluate',
     destroy: 'destroy',
+    sandboxReset: 'sandbox.reset',
+    sandboxSet: 'sandbox.set',
+    solutionEvaluate: 'solution.evaluate',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
-exports.sandboxSet = function (input, settings) {
-    return createMessage(identity, { name: MESSAGE_NAME.sandboxSet, input, settings });
+exports.destroy = function () {
+    return createMessage(identity, { name: MESSAGE_NAME.destroy });
 };
 
 exports.sandboxReset = function () {
     return createMessage(identity, { name: MESSAGE_NAME.sandboxReset });
 };
 
-exports.solutionEvaluate = function (solution, taskId) {
-    return createMessage(identity, { name: MESSAGE_NAME.solutionEvaluate, solution, taskId });
+exports.sandboxSet = function (input, settings) {
+    return createMessage(identity, { name: MESSAGE_NAME.sandboxSet, input, settings });
 };
 
-exports.destroy = function () {
-    return createMessage(identity, { name: MESSAGE_NAME.destroy });
+exports.solutionEvaluate = function (solution, taskId) {
+    return createMessage(identity, { name: MESSAGE_NAME.solutionEvaluate, solution, taskId });
 };
