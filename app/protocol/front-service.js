@@ -8,6 +8,7 @@ const MESSAGE_NAME = {
     puzzle: 'puzzle',
     puzzleChanged: 'puzzle.changed',
     puzzleIndexSet: 'puzzleIndex.set',
+    registerGameMaster: 'gameMaster.register',
     roundCountdownChanged: 'roundCountdown.changed',
     roundPhaseChanged: 'roundPhase.changed',
     roundStart: 'round.start',
@@ -17,6 +18,10 @@ const MESSAGE_NAME = {
     startCountdownChanged: 'startCountdown.changed',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
+
+exports.registerGameMaster = function (sessionId, userData) {
+    return createMessage(identity, { name: MESSAGE_NAME.registerGameMaster, sessionId, userData });
+};
 
 exports.participantJoined = function (sessionId, participantId, role) {
     return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, role });
