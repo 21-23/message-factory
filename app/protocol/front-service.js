@@ -15,6 +15,7 @@ const MESSAGE_NAME = {
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
+    registerGameMaster: 'gameMaster.register'
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
