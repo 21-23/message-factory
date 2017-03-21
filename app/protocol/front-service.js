@@ -12,6 +12,7 @@ const MESSAGE_NAME = {
     roundPhaseChanged: 'roundPhase.changed',
     roundStart: 'round.start',
     roundStop: 'round.stop',
+    sessionState: 'session.state',
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
@@ -48,6 +49,10 @@ exports.roundStart = function () {
 
 exports.roundStop = function () {
     return createMessage(identity, { name: MESSAGE_NAME.roundStop });
+};
+
+exports.sessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, score) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, score });
 };
 
 exports.solution = function (input) {
