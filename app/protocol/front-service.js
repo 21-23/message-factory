@@ -4,6 +4,7 @@ const identity = 'front-service';
 
 // a-z order, please
 const MESSAGE_NAME = {
+    createParticipant: 'participant.create',
     participantJoined: 'participant.joined',
     puzzle: 'puzzle',
     puzzleChanged: 'puzzle.changed',
@@ -18,6 +19,10 @@ const MESSAGE_NAME = {
     startCountdownChanged: 'startCountdown.changed',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
+
+exports.participantJoined = function (sessionId, participant) {
+    return createMessage(identity, { name: MESSAGE_NAME.createParticipant, participant });
+};
 
 exports.participantJoined = function (sessionId, participantId, role) {
     return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, role });
