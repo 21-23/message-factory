@@ -20,7 +20,7 @@ const MESSAGE_NAME = {
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
-exports.participantJoined = function (sessionId, participant) {
+exports.createParticipant = function (sessionId, participant) {
     return createMessage(identity, { name: MESSAGE_NAME.createParticipant, participant });
 };
 
