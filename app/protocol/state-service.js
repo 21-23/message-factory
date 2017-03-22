@@ -14,7 +14,7 @@ const MESSAGE_NAME = {
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
-exports.participantCreated = function (sessionId, participantId) {
+exports.participantCreated = function (participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.participantCreated, participantId });
 };
 
