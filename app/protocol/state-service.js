@@ -4,6 +4,7 @@ const identity = 'state-service';
 
 // a-z order, please
 const MESSAGE_NAME = {
+    participantCreated: 'participant.created',
     participantInput: 'participant.input',
     puzzleIndexSet: 'puzzleIndex.set',
     roundPhaseSet: 'roundPhase.set',
@@ -12,6 +13,10 @@ const MESSAGE_NAME = {
     sessionLeave: 'session.leave',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
+
+exports.participantCreated = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantCreated, participantId });
+};
 
 exports.participantInput = function (sessionId, participantId, input, timestamp) {
     return createMessage(identity, { name: MESSAGE_NAME.participantInput, sessionId, participantId, input, timestamp });
