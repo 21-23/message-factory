@@ -11,6 +11,8 @@ const MESSAGE_NAME = {
     solutionEvaluated: 'solution.evaluated',
     sessionJoin: 'session.join',
     sessionLeave: 'session.leave',
+    sessionCreate: 'session.create',
+    puzzleCreate: 'puzzle.create'
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
@@ -40,4 +42,12 @@ exports.sessionJoin = function (sessionId, participantId) {
 
 exports.sessionLeave = function (sessionId, participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.sessionLeave, sessionId, participantId });
+};
+
+exports.sessionCreate = function (gameMasterId, puzzles) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, gameMasterId, puzzles });
+};
+
+exports.puzzleCreate = function (puzzle) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzleCreate, puzzle });
 };
