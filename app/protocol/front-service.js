@@ -20,7 +20,7 @@ const MESSAGE_NAME = {
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
-exports.createParticipant = function (sessionId, participant) {
+exports.createParticipant = function (participant) {
     return createMessage(identity, { name: MESSAGE_NAME.createParticipant, participant });
 };
 
