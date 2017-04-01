@@ -8,6 +8,8 @@ const MESSAGE_NAME = {
     puzzleCreate: 'puzzle.create',
     puzzleIndexSet: 'puzzleIndex.set',
     roundPhaseSet: 'roundPhase.set',
+    roundStart: 'round.start',
+    roundStop: 'round.stop',
     sessionCreate: 'session.create',
     sessionJoin: 'session.join',
     sessionLeave: 'session.leave',
@@ -29,6 +31,14 @@ exports.puzzleIndexSet = function (sessionId, puzzleIndex) {
 
 exports.roundPhaseSet = function (sessionId, roundPhase) {
     return createMessage(identity, { name: MESSAGE_NAME.roundPhaseSet, sessionId, roundPhase });
+};
+
+exports.roundStart = function (sessionId) {
+    return createMessage(identity, { name: MESSAGE_NAME.roundStart, sessionId });
+};
+
+exports.roundStop = function (sessionId) {
+    return createMessage(identity, { name: MESSAGE_NAME.roundStop, sessionId });
 };
 
 exports.sessionCreate = function (gameMasterId, puzzles) {
