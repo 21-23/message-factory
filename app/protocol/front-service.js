@@ -6,6 +6,8 @@ const identity = 'front-service';
 const MESSAGE_NAME = {
     createParticipant: 'participant.create',
     participantJoined: 'participant.joined',
+    participantKick: 'participant.kick',
+    participantLeft: 'participant.left',
     puzzle: 'puzzle',
     puzzleChanged: 'puzzle.changed',
     puzzleIndexSet: 'puzzleIndex.set',
@@ -26,6 +28,14 @@ exports.createParticipant = function (participant) {
 
 exports.participantJoined = function (sessionId, participantId, role) {
     return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, role });
+};
+
+exports.participantKick = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantKick, sessionId, participantId });
+};
+
+exports.participantLeft = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantLeft, sessionId, participantId });
 };
 
 exports.puzzle = function (sessionId, input, expected) {

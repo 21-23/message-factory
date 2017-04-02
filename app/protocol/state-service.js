@@ -45,8 +45,8 @@ exports.sessionCreate = function (gameMasterId, puzzles) {
     return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, gameMasterId, puzzles });
 };
 
-exports.sessionJoin = function (sessionId, participantId) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionJoin, sessionId, participantId });
+exports.sessionJoin = function (sessionId, participantId, role) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionJoin, sessionId, participantId, role });
 };
 
 exports.sessionLeave = function (sessionId, participantId) {
