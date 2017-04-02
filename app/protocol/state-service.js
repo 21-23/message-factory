@@ -25,20 +25,20 @@ exports.puzzleCreate = function (puzzle) {
     return createMessage(identity, { name: MESSAGE_NAME.puzzleCreate, puzzle });
 };
 
-exports.puzzleIndexSet = function (sessionId, puzzleIndex) {
-    return createMessage(identity, { name: MESSAGE_NAME.puzzleIndexSet, sessionId, puzzleIndex });
+exports.puzzleIndexSet = function (sessionId, participantId, puzzleIndex) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzleIndexSet, sessionId, participantId, puzzleIndex });
 };
 
-exports.roundPhaseSet = function (sessionId, roundPhase) {
-    return createMessage(identity, { name: MESSAGE_NAME.roundPhaseSet, sessionId, roundPhase });
+exports.roundPhaseSet = function (sessionId, participantId, roundPhase) {
+    return createMessage(identity, { name: MESSAGE_NAME.roundPhaseSet, sessionId, participantId, roundPhase });
 };
 
-exports.roundStart = function (sessionId) {
-    return createMessage(identity, { name: MESSAGE_NAME.roundStart, sessionId });
+exports.roundStart = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.roundStart, sessionId, participantId });
 };
 
-exports.roundStop = function (sessionId) {
-    return createMessage(identity, { name: MESSAGE_NAME.roundStop, sessionId });
+exports.roundStop = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.roundStop, sessionId, participantId });
 };
 
 exports.sessionCreate = function (gameMasterId, puzzles) {
