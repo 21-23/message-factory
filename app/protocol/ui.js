@@ -4,18 +4,23 @@ const identity = 'ui';
 
 // a-z order, please
 const MESSAGE_NAME = {
+    gameMasterSessionState: 'gameMaster.sessionState',
     participantJoined: 'participant.joined',
     participantLeft: 'participant.left',
     participantSolution: 'participant.solution',
+    playerSessionState: 'player.sessionState',
     puzzle: 'puzzle',
     puzzleChanged: 'puzzle.changed',
     roundCountdownChanged: 'roundCountdown.changed',
     roundPhaseChanged: 'roundPhase.changed',
-    sessionState: 'session.state',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
+
+exports.gameMasterSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score });
+};
 
 exports.participantJoined = function (sessionId, participantId, displayName) {
     return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, displayName });
@@ -27,6 +32,10 @@ exports.participantLeft = function (sessionId, participantId) {
 
 exports.participantSolution = function (participantId, correct, time, length) {
     return createMessage(identity, { name: MESSAGE_NAME.participantSolution, correct, time, length });
+};
+
+exports.playerSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantSolution, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput });
 };
 
 exports.puzzle = function (input, expected) {
@@ -43,10 +52,6 @@ exports.roundCountdownChanged = function (roundCountdown) {
 
 exports.roundPhaseChanged = function (roundPhase) {
     return createMessage(identity, { name: MESSAGE_NAME.roundPhaseChanged, roundPhase });
-};
-
-exports.sessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, score) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, score });
 };
 
 exports.solutionEvaluated = function (result, error, correct, time) {

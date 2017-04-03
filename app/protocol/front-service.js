@@ -5,9 +5,11 @@ const identity = 'front-service';
 // a-z order, please
 const MESSAGE_NAME = {
     createParticipant: 'participant.create',
+    gameMasterSessionState: 'gameMaster.sessionState',
     participantJoined: 'participant.joined',
     participantKick: 'participant.kick',
     participantLeft: 'participant.left',
+    playerSessionState: 'player.sessionState',
     puzzle: 'puzzle',
     puzzleChanged: 'puzzle.changed',
     puzzleIndexSet: 'puzzleIndex.set',
@@ -15,7 +17,6 @@ const MESSAGE_NAME = {
     roundPhaseChanged: 'roundPhase.changed',
     roundStart: 'round.start',
     roundStop: 'round.stop',
-    sessionState: 'session.state',
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
@@ -24,6 +25,10 @@ exports.MESSAGE_NAME = MESSAGE_NAME;
 
 exports.createParticipant = function (participant) {
     return createMessage(identity, { name: MESSAGE_NAME.createParticipant, participant });
+};
+
+exports.gameMasterSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score) {
+    return createMessage(identity, { name: MESSAGE_NAME.createParticipant, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score });
 };
 
 exports.participantJoined = function (sessionId, participantId, role) {
@@ -36,6 +41,10 @@ exports.participantKick = function (sessionId, participantId) {
 
 exports.participantLeft = function (sessionId, participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.participantLeft, sessionId, participantId });
+};
+
+exports.playerSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput) {
+    return createMessage(identity, { name: MESSAGE_NAME.playerSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput });
 };
 
 exports.puzzle = function (sessionId, input, expected) {
@@ -64,10 +73,6 @@ exports.roundStart = function () {
 
 exports.roundStop = function () {
     return createMessage(identity, { name: MESSAGE_NAME.roundStop });
-};
-
-exports.sessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, score) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, score });
 };
 
 exports.solution = function (input) {
