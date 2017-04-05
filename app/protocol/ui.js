@@ -19,7 +19,7 @@ const MESSAGE_NAME = {
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
 exports.gameMasterSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score });
+    return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score });
 };
 
 exports.participantJoined = function (sessionId, participantId, displayName) {
@@ -35,7 +35,7 @@ exports.participantSolution = function (participantId, correct, time, length) {
 };
 
 exports.playerSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantSolution, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput });
+    return createMessage(identity, { name: MESSAGE_NAME.playerSessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput });
 };
 
 exports.puzzle = function (input, expected) {
