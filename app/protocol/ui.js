@@ -22,12 +22,12 @@ exports.gameMasterSessionState = function (displayName, puzzleIndex, puzzleCount
     return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, score });
 };
 
-exports.participantJoined = function (sessionId, participantId, displayName) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, displayName });
+exports.participantJoined = function (participantId, displayName) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, participantId, displayName });
 };
 
-exports.participantLeft = function (sessionId, participantId) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantLeft, sessionId, participantId });
+exports.participantLeft = function (participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantLeft, participantId });
 };
 
 exports.participantSolution = function (participantId, correct, time, length) {
