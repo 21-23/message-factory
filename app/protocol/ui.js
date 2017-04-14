@@ -32,7 +32,7 @@ exports.participantLeft = function (participantId) {
 };
 
 exports.participantSolution = function (participantId, correct, time, length) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantSolution, correct, time, length });
+    return createMessage(identity, { name: MESSAGE_NAME.participantSolution, participantId, correct, time, length });
 };
 
 exports.playerSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput) {
