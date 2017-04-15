@@ -41,8 +41,8 @@ exports.roundStop = function (sessionId, participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.roundStop, sessionId, participantId });
 };
 
-exports.sessionCreate = function (gameMasterId, puzzles) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, gameMasterId, puzzles });
+exports.sessionCreate = function (gameMasterId, alias, puzzles) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, gameMasterId, alias, puzzles });
 };
 
 exports.sessionJoin = function (sessionId, participantId, role) {
