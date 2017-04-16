@@ -14,6 +14,7 @@
   },
   "author": "21-23",
   "license": "LGPL-3.0",
+  "private": true,
   "devDependencies": {
     "eslint": "^3.13.1",
     "eslint-config-airbnb-base": "^11.0.1",
