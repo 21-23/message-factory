@@ -44,8 +44,8 @@ exports.participantLeft = function (sessionId, participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.participantLeft, sessionId, participantId });
 };
 
-exports.playerSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solved) {
-    return createMessage(identity, { name: MESSAGE_NAME.playerSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solved });
+exports.playerSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solution) {
+    return createMessage(identity, { name: MESSAGE_NAME.playerSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solution });
 };
 
 exports.puzzle = function (sessionId, input, expected) {
