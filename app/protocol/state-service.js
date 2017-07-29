@@ -53,6 +53,6 @@ exports.sessionLeave = function (sessionId, participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.sessionLeave, sessionId, participantId });
 };
 
-exports.solutionEvaluated = function (taskId, result, error) {
-    return createMessage(identity, { name: MESSAGE_NAME.solutionEvaluated, taskId, result, error });
+exports.solutionEvaluated = function (taskId, result, error, correct) {
+    return createMessage(identity, { name: MESSAGE_NAME.solutionEvaluated, taskId, result, error, correct });
 };
