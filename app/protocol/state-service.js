@@ -10,6 +10,7 @@ const MESSAGE_NAME = {
     roundPhaseSet: 'roundPhase.set',
     roundStart: 'round.start',
     roundStop: 'round.stop',
+    sandboxConnected: 'sandbox.connected',
     sessionCreate: 'session.create',
     sessionJoin: 'session.join',
     sessionLeave: 'session.leave',
@@ -39,6 +40,10 @@ exports.roundStart = function (sessionId, participantId) {
 
 exports.roundStop = function (sessionId, participantId) {
     return createMessage(identity, { name: MESSAGE_NAME.roundStop, sessionId, participantId });
+};
+
+exports.sandboxConnected = function () {
+    return createMessage(identity, { name: MESSAGE_NAME.sandboxConnected });
 };
 
 exports.sessionCreate = function (gameMasterId, alias, puzzles) {
