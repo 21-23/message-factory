@@ -32,12 +32,12 @@ exports.gameMasterSessionState = function (sessionId, participantId, puzzleIndex
     return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players });
 };
 
-exports.participantJoined = function (sessionId, participantId, role) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, role });
+exports.participantJoined = function (game, sessionAlias, sessionId, participantId, role) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, game, sessionAlias, sessionId, participantId, role });
 };
 
-exports.participantKick = function (sessionId, participantId) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantKick, sessionId, participantId });
+exports.participantKick = function (game, sessionAlias, sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantKick, game, sessionAlias, sessionId, participantId });
 };
 
 exports.participantLeft = function (sessionId, participantId) {
