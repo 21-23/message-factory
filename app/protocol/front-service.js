@@ -52,8 +52,8 @@ exports.puzzle = function (sessionId, input, expected) {
     return createMessage(identity, { name: MESSAGE_NAME.puzzle, sessionId, input, expected });
 };
 
-exports.puzzleChanged = function (sessionId, puzzleIndex, puzzleName, timeLimit) {
-    return createMessage(identity, { name: MESSAGE_NAME.puzzleChanged, sessionId, puzzleIndex, puzzleName, timeLimit });
+exports.puzzleChanged = function (sessionId, puzzleIndex, puzzleName, puzzleOptions) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzleChanged, sessionId, puzzleIndex, puzzleName, puzzleOptions });
 };
 
 exports.puzzleIndexSet = function (index) {
