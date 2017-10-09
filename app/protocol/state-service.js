@@ -50,12 +50,12 @@ exports.sessionCreate = function (gameMasterId, alias, puzzles) {
     return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, gameMasterId, alias, puzzles });
 };
 
-exports.sessionJoin = function (game, sessionAlias, participantId, role) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionJoin, game, sessionAlias, participantId, role });
+exports.sessionJoin = function (connectionId, game, sessionAlias, participantId, role) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionJoin, connectionId, game, sessionAlias, participantId, role });
 };
 
-exports.sessionLeave = function (game, sessionAlias, sessionId, participantId) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionLeave, game, sessionAlias, sessionId, participantId });
+exports.sessionLeave = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionLeave, sessionId, participantId });
 };
 
 exports.solutionEvaluated = function (taskId, result, error, correct) {

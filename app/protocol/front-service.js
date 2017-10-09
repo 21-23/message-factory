@@ -6,7 +6,6 @@ const identity = 'front-service';
 const MESSAGE_NAME = {
     createParticipant: 'participant.create',
     gameMasterSessionState: 'gameMaster.sessionState',
-    participantJoined: 'participant.joined',
     participantKick: 'participant.kick',
     participantLeft: 'participant.left',
     playerSessionState: 'player.sessionState',
@@ -18,6 +17,7 @@ const MESSAGE_NAME = {
     roundStart: 'round.start',
     roundStop: 'round.stop',
     score: 'score',
+    sessionJoinResult: 'sessionJoin.result',
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
@@ -32,12 +32,8 @@ exports.gameMasterSessionState = function (sessionId, participantId, puzzleIndex
     return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players });
 };
 
-exports.participantJoined = function (game, sessionAlias, sessionId, participantId, role) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, game, sessionAlias, sessionId, participantId, role });
-};
-
-exports.participantKick = function (game, sessionAlias, sessionId, participantId) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantKick, game, sessionAlias, sessionId, participantId });
+exports.participantKick = function (sessionId, participantId) {
+    return createMessage(identity, { name: MESSAGE_NAME.participantKick, sessionId, participantId });
 };
 
 exports.participantLeft = function (sessionId, participantId) {
@@ -78,6 +74,10 @@ exports.roundStop = function () {
 
 exports.score = function (sessionId, players) {
     return createMessage(identity, { name: MESSAGE_NAME.score, sessionId, players });
+};
+
+exports.sessionJoinResult = function (connectionId, sessionId) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionJoinResult, connectionId, sessionId });
 };
 
 exports.solution = function (input) {
