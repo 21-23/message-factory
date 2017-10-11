@@ -6,7 +6,6 @@ const identity = 'front-service';
 const MESSAGE_NAME = {
     createParticipant: 'participant.create',
     gameMasterSessionState: 'gameMaster.sessionState',
-    participantJoined: 'participant.joined',
     participantKick: 'participant.kick',
     participantLeft: 'participant.left',
     playerSessionState: 'player.sessionState',
@@ -18,6 +17,7 @@ const MESSAGE_NAME = {
     roundStart: 'round.start',
     roundStop: 'round.stop',
     score: 'score',
+    sessionJoinResult: 'sessionJoin.result',
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
@@ -30,10 +30,6 @@ exports.createParticipant = function (participant) {
 
 exports.gameMasterSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players) {
     return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players });
-};
-
-exports.participantJoined = function (sessionId, participantId, role) {
-    return createMessage(identity, { name: MESSAGE_NAME.participantJoined, sessionId, participantId, role });
 };
 
 exports.participantKick = function (sessionId, participantId) {
@@ -52,8 +48,8 @@ exports.puzzle = function (sessionId, input, expected) {
     return createMessage(identity, { name: MESSAGE_NAME.puzzle, sessionId, input, expected });
 };
 
-exports.puzzleChanged = function (sessionId, puzzleIndex, puzzleName, timeLimit) {
-    return createMessage(identity, { name: MESSAGE_NAME.puzzleChanged, sessionId, puzzleIndex, puzzleName, timeLimit });
+exports.puzzleChanged = function (sessionId, puzzleIndex, puzzleName, puzzleOptions) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzleChanged, sessionId, puzzleIndex, puzzleName, puzzleOptions });
 };
 
 exports.puzzleIndexSet = function (index) {
@@ -78,6 +74,10 @@ exports.roundStop = function () {
 
 exports.score = function (sessionId, players) {
     return createMessage(identity, { name: MESSAGE_NAME.score, sessionId, players });
+};
+
+exports.sessionJoinResult = function (connectionId, sessionId) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionJoinResult, connectionId, sessionId });
 };
 
 exports.solution = function (input) {

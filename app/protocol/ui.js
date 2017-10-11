@@ -39,12 +39,12 @@ exports.playerSessionState = function (displayName, puzzleIndex, puzzleCount, pu
     return createMessage(identity, { name: MESSAGE_NAME.playerSessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solution });
 };
 
-exports.puzzle = function (input, expected) {
-    return createMessage(identity, { name: MESSAGE_NAME.puzzle, input, expected });
+exports.puzzle = function (input, expected, options) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzle, input, expected, options });
 };
 
-exports.puzzleChanged = function (puzzleIndex, puzzleName, timeLimit) {
-    return createMessage(identity, { name: MESSAGE_NAME.puzzleChanged, puzzleIndex, puzzleName, timeLimit });
+exports.puzzleChanged = function (puzzleIndex, puzzleName, puzzleOptions) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzleChanged, puzzleIndex, puzzleName, puzzleOptions });
 };
 
 exports.roundCountdownChanged = function (roundCountdown) {
