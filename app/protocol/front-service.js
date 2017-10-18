@@ -44,8 +44,8 @@ exports.playerSessionState = function (sessionId, participantId, puzzleIndex, pu
     return createMessage(identity, { name: MESSAGE_NAME.playerSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solution });
 };
 
-exports.puzzle = function (sessionId, input, expected) {
-    return createMessage(identity, { name: MESSAGE_NAME.puzzle, sessionId, input, expected });
+exports.puzzle = function (sessionId, input, expected, puzzleOptions) {
+    return createMessage(identity, { name: MESSAGE_NAME.puzzle, sessionId, input, expected, puzzleOptions });
 };
 
 exports.puzzleChanged = function (sessionId, puzzleIndex, puzzleName, puzzleOptions) {
