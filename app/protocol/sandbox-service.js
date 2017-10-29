@@ -19,8 +19,8 @@ exports.sandboxReset = function () {
     return createMessage(identity, { name: MESSAGE_NAME.sandboxReset });
 };
 
-exports.sandboxSet = function (input, expected, hidden, options) {
-    return createMessage(identity, { name: MESSAGE_NAME.sandboxSet, input, expected, hidden, options });
+exports.sandboxSet = function (input, expected, hidden, puzzleOptions, sandboxSettings) {
+    return createMessage(identity, { name: MESSAGE_NAME.sandboxSet, input, expected, hidden, puzzleOptions, sandboxSettings });
 };
 
 exports.solutionEvaluate = function (solution, taskId) {
