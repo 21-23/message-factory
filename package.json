@@ -1,6 +1,6 @@
 {
   "name": "message-factory",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "main": "app/index.js",
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha \"./test/**/*.spec.js\"",
