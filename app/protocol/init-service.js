@@ -1,6 +1,6 @@
 const { createMessage } = require('../message-factory');
 
-const identity = 'init-service';
+const identity = require('./identity').INIT_SERVICE;
 
 // a-z order, please
 const MESSAGE_NAME = {
