@@ -1,6 +1,6 @@
 const { createMessage } = require('../message-factory');
 
-const identity = 'front-service';
+const identity = require('./identity').FRONT_SERVICE;
 
 // a-z order, please
 const MESSAGE_NAME = {

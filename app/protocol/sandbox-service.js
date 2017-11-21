@@ -1,6 +1,6 @@
 const { createMessage } = require('../message-factory');
 
-const identity = 'sandbox-service';
+const identity = require('./identity').SANDBOX_SERVICE;
 
 // a-z order, please
 const MESSAGE_NAME = {
