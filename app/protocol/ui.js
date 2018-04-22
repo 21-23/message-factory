@@ -13,14 +13,15 @@ const MESSAGE_NAME = {
     puzzleChanged: 'puzzle.changed',
     roundCountdownChanged: 'roundCountdown.changed',
     roundPhaseChanged: 'roundPhase.changed',
+    sandboxStatus: 'sandbox.status',
     score: 'score',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
 
-exports.gameMasterSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players) {
-    return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players });
+exports.gameMasterSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players, sandboxStatus) {
+    return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players, sandboxStatus });
 };
 
 exports.participantJoined = function (participantId, displayName) {
@@ -53,6 +54,10 @@ exports.roundCountdownChanged = function (roundCountdown) {
 
 exports.roundPhaseChanged = function (roundPhase) {
     return createMessage(identity, { name: MESSAGE_NAME.roundPhaseChanged, roundPhase });
+};
+
+exports.sandboxStatus = function (status) {
+    return createMessage(identity, { name: MESSAGE_NAME.sandboxStatus, status });
 };
 
 exports.score = function (players) {

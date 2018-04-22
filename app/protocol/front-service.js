@@ -16,6 +16,7 @@ const MESSAGE_NAME = {
     roundPhaseChanged: 'roundPhase.changed',
     roundStart: 'round.start',
     roundStop: 'round.stop',
+    sandboxStatus: 'sandbox.status',
     score: 'score',
     sessionJoinResult: 'sessionJoin.result',
     solution: 'solution',
@@ -28,8 +29,8 @@ exports.createParticipant = function (participant) {
     return createMessage(identity, { name: MESSAGE_NAME.createParticipant, participant });
 };
 
-exports.gameMasterSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players) {
-    return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players });
+exports.gameMasterSessionState = function (sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players, sandboxStatus) {
+    return createMessage(identity, { name: MESSAGE_NAME.gameMasterSessionState, sessionId, participantId, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, players, sandboxStatus });
 };
 
 exports.participantKick = function (sessionId, participantId) {
@@ -70,6 +71,10 @@ exports.roundStart = function () {
 
 exports.roundStop = function () {
     return createMessage(identity, { name: MESSAGE_NAME.roundStop });
+};
+
+exports.sandboxStatus = function (sessionId, status) {
+    return createMessage(identity, { name: MESSAGE_NAME.sandboxStatus, sessionId, status });
 };
 
 exports.score = function (sessionId, players) {
