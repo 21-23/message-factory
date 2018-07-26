@@ -4,6 +4,7 @@ const { createMessage, parseMessage } = require('./message-factory');
 const arnaux = require('./arnaux-messages');
 const identity = require('./protocol/identity');
 const frontServiceProtocol = require('./protocol/front-service');
+const wsServiceProtocol = require('./protocol/ws-service');
 const initServiceProtocol = require('./protocol/init-service');
 const sandboxServiceProtocol = require('./protocol/sandbox-service');
 const stateServiceProtocol = require('./protocol/state-service');
@@ -16,6 +17,7 @@ module.exports = {
     protocol: {
         identity,
         frontService: frontServiceProtocol,
+        wsService: wsServiceProtocol,
         initService: initServiceProtocol,
         sandboxService: sandboxServiceProtocol,
         stateService: stateServiceProtocol,

@@ -18,7 +18,6 @@ const MESSAGE_NAME = {
     roundStop: 'round.stop',
     sandboxStatus: 'sandbox.status',
     score: 'score',
-    sessionJoinResult: 'sessionJoin.result',
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
     startCountdownChanged: 'startCountdown.changed',
@@ -79,10 +78,6 @@ exports.sandboxStatus = function (sessionId, status) {
 
 exports.score = function (sessionId, players) {
     return createMessage(identity, { name: MESSAGE_NAME.score, sessionId, players });
-};
-
-exports.sessionJoinResult = function (connectionId, sessionId) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionJoinResult, connectionId, sessionId });
 };
 
 exports.solution = function (input) {
