@@ -21,6 +21,7 @@ const MESSAGE_NAME = {
     sessionJoinResult: 'sessionJoin.result',
     solution: 'solution',
     solutionEvaluated: 'solution.evaluated',
+    solutionSync: 'solution.sync',
     startCountdownChanged: 'startCountdown.changed',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
@@ -91,6 +92,10 @@ exports.solution = function (input) {
 
 exports.solutionEvaluated = function (sessionId, participantId, result, error, correct, time, length) {
     return createMessage(identity, { name: MESSAGE_NAME.solutionEvaluated, sessionId, participantId, result, error, correct, time, length });
+};
+
+exports.solutionSync = function (sessionId, solutions) {
+    return createMessage(identity, { name: MESSAGE_NAME.solutionSync, sessionId, solutions });
 };
 
 exports.startCountdownChanged = function (sessionId, startCountdown) {

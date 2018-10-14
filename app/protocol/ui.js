@@ -16,6 +16,7 @@ const MESSAGE_NAME = {
     sandboxStatus: 'sandbox.status',
     score: 'score',
     solutionEvaluated: 'solution.evaluated',
+    solutionSync: 'solution.sync',
     startCountdownChanged: 'startCountdown.changed',
 };
 exports.MESSAGE_NAME = MESSAGE_NAME;
@@ -66,6 +67,10 @@ exports.score = function (players) {
 
 exports.solutionEvaluated = function (result, error, correct, time) {
     return createMessage(identity, { name: MESSAGE_NAME.solutionEvaluated, result, error, correct, time });
+};
+
+exports.solutionSync = function (solutions) {
+    return createMessage(identity, { name: MESSAGE_NAME.solutionSync, solutions });
 };
 
 exports.startCountdownChanged = function (startCountdown) {
