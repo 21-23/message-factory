@@ -8,6 +8,7 @@ const MESSAGE_NAME = {
     participantJoined: 'participant.joined',
     participantLeft: 'participant.left',
     participantSolution: 'participant.solution',
+    playerScore: 'player.score',
     playerSessionState: 'player.sessionState',
     puzzle: 'puzzle',
     puzzleChanged: 'puzzle.changed',
@@ -35,6 +36,10 @@ exports.participantLeft = function (participantId) {
 
 exports.participantSolution = function (participantId, correct, time, length) {
     return createMessage(identity, { name: MESSAGE_NAME.participantSolution, participantId, correct, time, length });
+};
+
+exports.playerScore = function (score, meta) {
+    return createMessage(identity, { name: MESSAGE_NAME.playerScore, score, meta });
 };
 
 exports.playerSessionState = function (displayName, puzzleIndex, puzzleCount, puzzle, roundPhase, roundCountdown, startCountdown, playerInput, solution) {
