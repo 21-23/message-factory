@@ -82,8 +82,8 @@ exports.score = function (sessionId, players) {
     return createMessage(identity, { name: MESSAGE_NAME.score, sessionId, players });
 };
 
-exports.sessionJoinResult = function (connectionId, sessionId) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionJoinResult, connectionId, sessionId });
+exports.sessionJoinResult = function (connectionId, sessionId, reason) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionJoinResult, connectionId, sessionId, reason });
 };
 
 exports.solution = function (input) {
