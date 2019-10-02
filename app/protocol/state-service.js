@@ -46,8 +46,8 @@ exports.sandboxConnected = function () {
     return createMessage(identity, { name: MESSAGE_NAME.sandboxConnected });
 };
 
-exports.sessionCreate = function (game, gameMasterId, alias, puzzles) {
-    return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, game, gameMasterId, alias, puzzles });
+exports.sessionCreate = function (game, gameMasterId, alias, puzzles, participantLimit) {
+    return createMessage(identity, { name: MESSAGE_NAME.sessionCreate, game, gameMasterId, alias, puzzles, participantLimit });
 };
 
 exports.sessionJoin = function (connectionId, game, sessionAlias, participantId, role) {
