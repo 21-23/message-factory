@@ -8,6 +8,7 @@ const MESSAGE_NAME = {
     participantJoined: 'participant.joined',
     participantLeft: 'participant.left',
     participantSolution: 'participant.solution',
+    playerJoinFailure: 'player.joinFailure',
     playerScore: 'player.score',
     playerSessionState: 'player.sessionState',
     puzzle: 'puzzle',
@@ -36,6 +37,10 @@ exports.participantLeft = function (participantId) {
 
 exports.participantSolution = function (participantId, correct, time, length) {
     return createMessage(identity, { name: MESSAGE_NAME.participantSolution, participantId, correct, time, length });
+};
+
+exports.playerJoinFailure = function (reason) {
+    return createMessage(identity, { name: MESSAGE_NAME.playerJoinFailure, reason });
 };
 
 exports.playerScore = function (score, meta) {
